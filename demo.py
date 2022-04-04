@@ -3,7 +3,7 @@ import os
 import sys
 
 dir ='/Users/grey/Documents/may/' # the folder that you want to transform
-
+oringinal_format = 'gb2312'
 save_dir = os.path.join(dir,'transormed')
 
 # Don't worry if the save dir doesn't exist
@@ -37,7 +37,7 @@ for root, folders, files in os.walk(dir):
 
         newfile = open(new_file_path, mode='w+')
         try:
-            newfile.write(open(file_path,'r',encoding='gb2312').read())
+            newfile.write(open(file_path,'r',encoding=oringinal_format).read())
         except Exception as e:
             print(file_path)
         newfile.close()
