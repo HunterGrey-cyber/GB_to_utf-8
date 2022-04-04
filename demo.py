@@ -2,9 +2,9 @@
 import os
 import sys
 
-dir ='/Users/grey/Documents/may/' # the folder that you want to transform
+dir = '/Users/grey/Documents/may/oringinal' # the folder that you want to transform
 oringinal_format = 'gb2312'
-save_dir = os.path.join(dir,'transormed')
+save_dir = '/Users/grey/Documents/may/saved'
 
 # Don't worry if the save dir doesn't exist
 if not os.path.exists(save_dir):
@@ -27,13 +27,13 @@ def relpath(root,dir):
 for root, folders, files in os.walk(dir):
     for file in files:
         file_path = os.path.join(root, file)
-        #gre the relative path
+        #get the relative path
         rel_path = relpath(root,dir)
-        new_file_path =os.path.join(save_dir,rel_path)
+        new_file_path = os.path.join(save_dir,rel_path)
 
         if not os.path.exists(new_file_path):
             os.makedirs(new_file_path)
-        new_file_path =os.path.join(new_file_path, file)
+        new_file_path = os.path.join(new_file_path, file)
 
         newfile = open(new_file_path, mode='w+')
         try:
